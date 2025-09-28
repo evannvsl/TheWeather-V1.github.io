@@ -1,0 +1,473 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    font-weight: 600
+}
+
+body {
+    background: url('assets/senja.jpg');
+    width: 100%;
+    height: 100dvh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.body ::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100dvh;
+    background: white;
+    backdrop-filter: blur(15px);
+}
+
+/* UTILITIES */
+
+.reguler-txt {
+    font-weight: 400;
+}
+
+/* END UTILITIES */
+
+.main-container {
+    width: 300px;
+    height: 496px;
+    z-index: 1;
+    background: linear-gradient(top, rgba(255, 253, 253, 0.15), rgb(255, 255, 255, 0.15));
+    border-radius: 20px;
+    backdrop-filter: blur(70px);
+    padding: 20px;
+}
+
+/* INPUT CONNTAINER */
+
+.input-container {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.city-input {
+    width: 100%;
+    padding: 10px 16px;
+    border-radius: 99px;
+    border: 3px solid transparent;
+    background: rgb(0, 0, 0, 0.15);
+    outline: none;
+    font-weight: 500;
+    transition: 0.25s border;
+    padding-right: 45px;
+}
+
+.city-input :focus {
+    border: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.city-input::placeholder {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.search-btn {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    display: flex;
+    border: none;
+    cursor: pointer;
+}
+ 
+/* END INPUT CONTAINER */
+
+/*SECTION WEATHER INFO*/
+
+.weather-info {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.location-date-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.location {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.weather-summary-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.weather-summary-img {
+    width: 120px;
+    height: 120px;
+}
+
+.weather-summary-info {
+    text-align: end;
+}
+
+.weather-conditions-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.condition-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.condition-item svg {
+   font-size: 30px;
+}
+
+.forecast-items-container {
+    display: flex;
+    gap: 15px;
+    overflow: scroll;
+    padding-bottom: 12px;
+}
+.forecast-items-container::-webkit-scrollbar{
+    width: 0px;
+    height: 5px;  
+}
+.forecast-items-container::-webkit-scrollbar-track{
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 99px;
+}
+.forecast-items-container::-webkit-scrollbar-thumb{
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 99px;
+}
+
+.forecast-item {
+    min-width: 70px;
+    background: rgba(73, 5, 40, 0.205);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 10px;
+    align-items: center;
+    border-radius: 20px;
+    transition: 0.5s background;
+}
+
+.forecast-item:hover {
+    background: rgba(174, 0, 90, 0.525);
+}
+
+.forecast-item-img {
+    width: 35px;
+    height: 35px;
+}
+
+/*END SECTION WEATHER INFO*/
+
+/* SECTION: MESSAGE */
+
+.section-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+    margin-top: 25%;
+}
+
+.section-message img {
+    height: 100px;
+    width: fit-content;
+}
+/* END SECTION: MESSAGE */
+
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.show-animation {
+  animation: fadeSlideUp 0.6s ease-out;
+}
+
+/* animasi forecast card muncul */
+@keyframes forecastPop {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.forecast-item {
+  opacity: 0;
+}
+
+.forecast-item.show {
+  animation: forecastPop 0.5s ease-out forwards;
+}
+
+/* animasi ikon cuaca */
+.weather-summary-img {
+  width: 120px;
+  height: 120px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* hover forecast lebih hidup */
+.forecast-item:hover {
+  background: rgba(174, 0, 90, 0.525);
+  transform: translateY(-5px) scale(1.05);
+  transition: all 0.3s ease;
+}
+
+/* --- Animasi Aesthetic Tambahan --- */
+
+/* Slide dari kiri */
+@keyframes slideFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-left {
+  animation: slideFromLeft 0.7s ease-out forwards;
+}
+
+/* Fade + Zoom halus */
+@keyframes fadeZoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.85);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+.fade-zoom {
+  animation: fadeZoom 0.6s ease-out forwards;
+}
+
+/* --- ANIMASI BACKGROUND CINEMATIC --- */
+body {
+  background: url("assets/senja.jpg") no-repeat center center fixed;
+  background-size: cover;
+  animation: moveZoomBg 40s ease-in-out infinite alternate;
+}
+
+/* Efek zoom + geser (Ken Burns effect) */
+@keyframes moveZoomBg {
+  0% {
+    background-position: center;
+    transform: scale(1);
+  }
+  100% {
+    background-position: top right;
+    transform: scale(1.1);
+  }
+}
+
+/* --- ANIMASI BACKGROUND CINEMATIC --- */
+body {
+  background: url("assets/senja.jpg") no-repeat center center fixed;
+  background-size: cover;
+  animation: moveZoomBg 40s ease-in-out infinite alternate;
+  transition: background-position 0.2s ease;
+  overflow: hidden;
+}
+
+@keyframes moveZoomBg {
+  0% {
+    background-position: center;
+    transform: scale(1);
+  }
+  100% {
+    background-position: top right;
+    transform: scale(1.1);
+  }
+}
+
+/* Efek kabut tipis (pure CSS, tanpa PNG) */
+.fog {
+  position: fixed;
+  width: 200%;
+  height: 100%;
+  background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.12), transparent 70%) repeat-x;
+  animation: fogMove 60s linear infinite;
+  opacity: 0.2;
+  top: 0;
+  left: -50%;
+  z-index: -1;
+}
+
+@keyframes fogMove {
+  from { transform: translateX(0); }
+  to { transform: translateX(50%); }
+}
+
+/* Efek shooting star super smooth ke kiri bawah */
+.shooting-star {
+  position: fixed;
+  width: 500px;   /* panjang ekor */
+  height: 2px;    /* tipis */
+  background: linear-gradient(270deg, rgba(255,255,255,1), rgba(255,255,255,0));
+  border-radius: 50%;
+  opacity: 0;
+  animation: shooting 18s linear infinite;
+  z-index: -1;
+  transform-origin: right center;
+}
+
+/* Kepala bintang (lebih kecil & matching) */
+.shooting-star::before {
+  content: "";
+  position: absolute;
+  right: 0; /* ujung kanan ekor */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;   /* lebih kecil */
+  height: 3px;
+  border-radius: 50%;
+  background: rgb(255, 255, 200); /* kuning lembut */
+  box-shadow: 
+    0 0 8px 3px rgba(255, 255, 200, 1),
+    0 0 16px 6px rgba(255, 220, 150, 0.9),
+    0 0 32px 10px rgba(255, 180, 100, 0.6);
+}
+
+@keyframes shooting {
+  0% {
+    transform: translate(0, 0) rotate(178deg);
+    opacity: 0;
+  }
+  5% { opacity: 1; }
+  90% {
+    transform: translate(-3000px, 250px) rotate(178deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-3400px, 300px) rotate(178deg);
+    opacity: 0;
+  }
+}
+
+/* Variasi delay & posisi */
+.star1 { top: 80px;  right: -300px; animation-delay: 0s; }
+.star2 { top: 160px; right: -400px; animation-delay: 8s; }
+.star3 { top: 240px; right: -500px; animation-delay: 14s; }
+.star4 { top: 120px; right: -600px; animation-delay: 20s; }
+.star5 { top: 200px; right: -350px; animation-delay: 28s; }
+
+/* Animasi fade in / fade out */
+.fade {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========================= */
+/* RESPONSIVE DESIGN LAYAR */
+/* ========================= */
+
+/* === RESPONSIVE UNTUK HP (TAMPILAN LEBIH RAPIH) === */
+@media (max-width: 768px) {
+body {
+  background: url("assets/senja.jpg") no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh; /* stabil di hp, ga lompat saat keyboard muncul */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+  animation: moveZoomBg 40s ease-in-out infinite alternate;
+  transition: background-position 0.2s ease;
+}
+
+/* RESPONSIVE UNTUK HP */
+@media (max-width: 768px) {
+  body {
+    background-position: center top; 
+    background-attachment: scroll;   
+  }
+
+  .main-container {
+    width: 75%;          /* perkecil biar ada ruang background */
+    max-width: 300px;    /* biar ga terlalu lebar */
+    height: 440px;       /* lebih kecil dari desktop tapi tetap persegi panjang */
+    padding: 16px;
+    border-radius: 20px; /* sama dengan desktop */
+    backdrop-filter: blur(70px); /* sama dengan desktop */
+    margin: 20px auto;
+  }
+
+  .weather-summary-img {
+    width: 90px;
+    height: 90px;
+  }
+
+  .forecast-items-container {
+    gap: 10px;
+  }
+
+  .forecast-item {
+    min-width: 65px;
+    padding: 8px;
+  }
+
+  .city-input {
+    font-size: 14px;
+    padding: 8px 14px;
+  }
+
+  .search-btn {
+    right: 12px;
+  }
+}
+}
