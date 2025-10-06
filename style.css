@@ -433,23 +433,22 @@ body {
 /* RESPONSIVE UNTUK HP */
 @media (max-width: 768px) {
   html, body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
     overflow: hidden;
-    height: 100%;
+    background: url("assets/senja.jpg") no-repeat center center fixed;
     background-size: cover;
     background-attachment: fixed;
-    background-position: center center;
   }
-}
 
   .main-container {
-    width: 75%;          /* perkecil biar ada ruang background */
-    max-width: 300px;    /* biar ga terlalu lebar */
-    height: 440px;       /* lebih kecil dari desktop tapi tetap persegi panjang */
-    padding: 16px;
-    border-radius: 20px; /* sama dengan desktop */
-    backdrop-filter: blur(70px); /* sama dengan desktop */
-    margin: 20px auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
+}
 
   .weather-summary-img {
     width: 90px;
@@ -476,3 +475,4 @@ body {
 }
 
 }
+
