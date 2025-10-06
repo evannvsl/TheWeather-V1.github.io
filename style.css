@@ -432,10 +432,14 @@ body {
 
 /* RESPONSIVE UNTUK HP */
 @media (max-width: 768px) {
-  body {
-    background-position: center top; 
-    background-attachment: scroll;   
+  html, body {
+    overflow: hidden;
+    height: 100%;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
   }
+}
 
   .main-container {
     width: 75%;          /* perkecil biar ada ruang background */
@@ -470,4 +474,5 @@ body {
     right: 12px;
   }
 }
+
 }
