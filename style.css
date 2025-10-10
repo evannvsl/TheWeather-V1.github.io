@@ -211,7 +211,6 @@ body {
   animation: fadeSlideUp 0.6s ease-out;
 }
 
-/* animasi forecast card muncul */
 @keyframes forecastPop {
   0% {
     opacity: 0;
@@ -231,7 +230,6 @@ body {
   animation: forecastPop 0.5s ease-out forwards;
 }
 
-/* animasi ikon cuaca */
 .weather-summary-img {
   width: 120px;
   height: 120px;
@@ -247,16 +245,12 @@ body {
   }
 }
 
-/* hover forecast lebih hidup */
 .forecast-item:hover {
   background: rgba(174, 0, 90, 0.525);
   transform: translateY(-5px) scale(1.05);
   transition: all 0.3s ease;
 }
 
-/* --- Animasi Aesthetic Tambahan --- */
-
-/* Slide dari kiri */
 @keyframes slideFromLeft {
   0% {
     opacity: 0;
@@ -272,7 +266,6 @@ body {
   animation: slideFromLeft 0.7s ease-out forwards;
 }
 
-/* Fade + Zoom halus */
 @keyframes fadeZoom {
   0% {
     opacity: 0;
@@ -290,14 +283,12 @@ body {
   animation: fadeZoom 0.6s ease-out forwards;
 }
 
-/* --- ANIMASI BACKGROUND CINEMATIC --- */
 body {
   background: url("assets/senja.jpg") no-repeat center center fixed;
   background-size: cover;
   animation: moveZoomBg 40s ease-in-out infinite alternate;
 }
 
-/* Efek zoom + geser (Ken Burns effect) */
 @keyframes moveZoomBg {
   0% {
     background-position: center;
@@ -309,7 +300,6 @@ body {
   }
 }
 
-/* --- ANIMASI BACKGROUND CINEMATIC --- */
 body {
   background: url("assets/senja.jpg") no-repeat center center fixed;
   background-size: cover;
@@ -329,7 +319,6 @@ body {
   }
 }
 
-/* Efek kabut tipis (pure CSS, tanpa PNG) */
 .fog {
   position: fixed;
   width: 200%;
@@ -347,11 +336,10 @@ body {
   to { transform: translateX(50%); }
 }
 
-/* Efek shooting star super smooth ke kiri bawah */
 .shooting-star {
   position: fixed;
-  width: 500px;   /* panjang ekor */
-  height: 2px;    /* tipis */
+  width: 500px;   
+  height: 2px;    
   background: linear-gradient(270deg, rgba(255,255,255,1), rgba(255,255,255,0));
   border-radius: 50%;
   opacity: 0;
@@ -360,17 +348,16 @@ body {
   transform-origin: right center;
 }
 
-/* Kepala bintang (lebih kecil & matching) */
 .shooting-star::before {
   content: "";
   position: absolute;
-  right: 0; /* ujung kanan ekor */
+  right: 0; 
   top: 50%;
   transform: translateY(-50%);
-  width: 3px;   /* lebih kecil */
+  width: 3px;  
   height: 3px;
   border-radius: 50%;
-  background: rgb(255, 255, 200); /* kuning lembut */
+  background: rgb(255, 255, 200); 
   box-shadow: 
     0 0 8px 3px rgba(255, 255, 200, 1),
     0 0 16px 6px rgba(255, 220, 150, 0.9),
@@ -393,14 +380,12 @@ body {
   }
 }
 
-/* Variasi delay & posisi */
 .star1 { top: 80px;  right: -300px; animation-delay: 0s; }
 .star2 { top: 160px; right: -400px; animation-delay: 8s; }
 .star3 { top: 240px; right: -500px; animation-delay: 14s; }
 .star4 { top: 120px; right: -600px; animation-delay: 20s; }
 .star5 { top: 200px; right: -350px; animation-delay: 28s; }
 
-/* Animasi fade in / fade out */
 .fade {
   opacity: 0;
   transform: translateY(10px);
@@ -412,16 +397,12 @@ body {
   transform: translateY(0);
 }
 
-/* ========================= */
-/* RESPONSIVE DESIGN LAYAR */
-/* ========================= */
-
-/* === RESPONSIVE UNTUK HP (TAMPILAN LEBIH RAPIH) === */
+/* === HP === */
 @media (max-width: 768px) {
 body {
   background: url("assets/senja.jpg") no-repeat center center fixed;
   background-size: cover;
-  min-height: 100vh; /* stabil di hp, ga lompat saat keyboard muncul */
+  min-height: 100vh; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -430,7 +411,6 @@ body {
   transition: background-position 0.2s ease;
 }
 
-/* RESPONSIVE UNTUK HP */
 @media (max-width: 768px) {
   html, body {
     height: 100vh;
@@ -475,4 +455,5 @@ body {
 }
 
 }
+
 
