@@ -60,7 +60,7 @@ function currentDate() {
 }
 
 async function updateWeatherInfo(city) {
-    // fade out dulu
+    
     weatherInfoSection.classList.remove("show");
     weatherInfoSection.classList.add("fade");
 
@@ -78,7 +78,7 @@ async function updateWeatherInfo(city) {
         wind: { speed }
     } = weatherData;
 
-    // tunggu biar animasi keluar dulu
+    
     setTimeout(() => {
         countryTxt.textContent = country;
         tempTxt.textContent = Math.round(temp) + '°C';
@@ -89,7 +89,7 @@ async function updateWeatherInfo(city) {
         currentDateTxt.textContent = currentDate();
         weatherSummaryImg.src = `assets/weather/${getWeatherIcon(id)}`;
 
-        // tampilkan + animasi fade in
+        
         showDisplaySection(weatherInfoSection);
         setTimeout(() => {
             weatherInfoSection.classList.add("show");
@@ -147,14 +147,15 @@ function showDisplaySection(section) {
         });
 
     section.style.display = 'flex';
-    void section.offsetWidth; // retrigger animasi
+    void section.offsetWidth; 
     section.classList.add('show-animation');
 }
 
-// Parallax efek background (ikut mouse)
+
 document.addEventListener("mousemove", (e) => {
     let x = (e.clientX / window.innerWidth) * 20;
     let y = (e.clientY / window.innerHeight) * 20;
     document.body.style.backgroundPosition = `${50 - x}% ${50 - y}%`;
 });
+
  
